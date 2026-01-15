@@ -1,6 +1,7 @@
-﻿namespace TaskManager.Services.Commands
+﻿using MediatR;
+using TaskManager.Models;
+
+namespace TaskManager.Services.Queries
 {
-    public class GetTasksQuery
-    {
-    }
+    public record GetTasksQuery : IRequest<List<TaskModel>>;
 }

@@ -21,12 +21,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\Handlers\" />
-    <Folder Include="Services\Commands\" />
-    <Folder Include="Services\TaskServices\" />
-    <Folder Include="Services\Queries\" />
-  </ItemGroup>
-
 </Project>

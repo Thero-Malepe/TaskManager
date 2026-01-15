@@ -1,6 +1,7 @@
-﻿namespace TaskManager.Services.Commands
+﻿using MediatR;
+using TaskManager.Models;
+
+namespace TaskManager.Services.Commands
 {
-    public class DeleteTaskCommand
-    {
-    }
+    public record DeleteTaskCommand(int Id) : IRequest<bool>;
 }

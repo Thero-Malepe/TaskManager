@@ -1,6 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using TaskManager.Data;
+using TaskManager.Interfaces;
+using TaskManager.Services.TaskServices;
 
 namespace TaskManager
 {
@@ -18,6 +21,15 @@ namespace TaskManager
             builder.Services.AddDbContext<TaskManagerDbContext>(
                 options => options.UseNpgsql(builder.Configuration.GetConnectionString("TaskManagerDb")
             ));
+
+            builder.Host.UseSerilog((ctx, lc) => lc.WriteTo.Console().ReadFrom.Configuration(ctx.Configuration));
+
+            builder.Services.AddScoped<ITaskManagerService, TaskManagerService>();
+
+            builder.Services.AddMediatR(configuration =>
+            {
+                configuration.RegisterServicesFromAssembly(typeof(Program).Assembly);
+            });
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

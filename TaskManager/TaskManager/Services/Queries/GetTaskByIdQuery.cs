@@ -1,6 +1,7 @@
-﻿namespace TaskManager.Services.Queries
+﻿using MediatR;
+using TaskManager.Models;
+
+namespace TaskManager.Services.Queries
 {
-    public class GetTaskByIdQuery
-    {
-    }
+    public record GetTaskByIdQuery(int Id) : IRequest<TaskModel?>;
 }
