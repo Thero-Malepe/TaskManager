@@ -2,3 +2,5 @@
 /TaskManager/TaskManager/obj
 /TaskManager/TaskManager/bin
 /TaskManager/TaskManager/logs
+/Taskmanager.Tests/TaskManager.Test/bin
+/Taskmanager.Tests/TaskManager.Test/obj

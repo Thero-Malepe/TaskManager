@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using TaskManager.Data;
 using TaskManager.Interfaces;
+using TaskManager.Middleware;
 using TaskManager.Services.TaskServices;
 
 namespace TaskManager
@@ -35,6 +36,7 @@ namespace TaskManager
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+            app.UseMiddleware<ExceptionMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
